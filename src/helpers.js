@@ -77,10 +77,10 @@ export function startTracking (metrika) {
             if (config.ignoreRoutes.indexOf(to.name) > -1) {return}
 
             // do not track page visit if previous and next routes URLs match
-            if (config.skipSamePath && to.path == from.path) {return}
+            if (config.skipSamePath && to.fullPath == from.fullPath) {return}
 
             // track page visit
-            metrika.hit(to.path, {referer: from.path})
+            metrika.hit(to.fullPath, {referer: from.fullPath})
         })
     }
 }
